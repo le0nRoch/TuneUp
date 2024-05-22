@@ -1,9 +1,9 @@
 'use server'
-import { Box, Link } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import React from 'react';
 import { FaHome, FaBell, FaPlus, FaHeart, FaUser } from 'react-icons/fa';
 import { IoIosChatbubbles } from "react-icons/io";
-
+import  Link from 'next/link';
 export async function NavbarMobile() {
     const icons = [
         {
@@ -12,7 +12,7 @@ export async function NavbarMobile() {
         },
         {
             icon: <FaPlus />,
-            link: '/create',
+            link: '/feed',
         },
         {
             icon: <IoIosChatbubbles />,
