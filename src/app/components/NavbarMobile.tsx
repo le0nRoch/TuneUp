@@ -1,4 +1,3 @@
-'use server'
 import { Box } from '@chakra-ui/react';
 import React from 'react';
 import { FaHome, FaBell, FaPlus, FaHeart, FaUser } from 'react-icons/fa';
