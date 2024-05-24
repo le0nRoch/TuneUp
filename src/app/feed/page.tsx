@@ -1,7 +1,7 @@
-export default function Feed() {
+import React from 'react';
+
+export default function Page() {
   return (
-    <main>
-      <p>feed</p>
-    </main>
+      <main>Feed</main>
   );
 }
