@@ -1,17 +1,42 @@
-'use client'
-import { useBreakpointValue } from '@chakra-ui/react'
-import React from 'react'
-import { NavbarMobile } from './NavbarMobile'
-import { NavbarDesktop } from './NavbarDesktop'
-export default function Navigation() {
+"use client";
+import { Box } from "@chakra-ui/react";
+import Link from "next/link";
 
- //   const isMobile = useBreakpointValue({ base: true, md: false });
+export interface Route {
+  name: string;
+  link: string;
+  icon?: React.ReactNode;
+  displayIconInDesktop?: boolean;
+}
 
-    let width = "wasd" // screen.width;
-    console.log(width)
-    return (
-        <>
-            <NavbarDesktop />
-        </>
-    )
+interface NavigationProps {
+  routes: Route[];
+}
+
+export default function Navigation({ routes }: NavigationProps) {
+  return (
+    <header>
+      <nav>
+        <Box
+          bg="white"
+          w="100%"
+          h="60px"
+          position="fixed"
+          top="0"
+          display="flex"
+          justifyContent="space-around"
+          alignItems="center"
+          boxShadow="0px 1px 10px rgba(0, 0, 0, 0.1)"
+          zIndex="1"
+        >
+          {routes.map((route) => (
+            <Link href={route.link} key={route.link}>
+              {route.displayIconInDesktop ? route.icon : route.name}
+            </Link>
+          ))}
+        </Box>
+        <Box h="60px" />
+      </nav>
+    </header>
+  );
 }
