@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Providers } from "./providers";
-import Navbar, { type Route } from "./components/Navbar";
+import Navbar, { type Route } from "../layouts/Navbar";
 import { FaBell, FaPlus, FaUser } from "react-icons/fa";
 import { IoIosChatbubbles } from "react-icons/io";
 
@@ -14,6 +14,7 @@ const routes: Route[] = [
     name: "Feed",
     link: "/feed",
     icon: <FaPlus />,
+    implemented: true,
   },
   {
     name: "Chats",
@@ -40,7 +41,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body
+        style={{
+          backgroundColor: "var(--chakra-colors-purple-100)",
+        }}
+      >
         <Providers>
           <Navbar routes={routes} />
           {children}

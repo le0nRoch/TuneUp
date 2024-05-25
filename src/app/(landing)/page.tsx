@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Heading, Button, Text } from "@chakra-ui/react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -11,9 +12,11 @@ export default function Home() {
         <Text fontSize="xl" mb={8}>
           Connect with other artist to create new and original music.
         </Text>
-        <Button size="lg" colorScheme="teal">
-          Get Started
-        </Button>
+        <Link href="/feed" passHref>
+          <Button size="lg" colorScheme="purple">
+            Get Started
+          </Button>
+        </Link>
       </Box>
     </main>
   );

@@ -1,12 +1,13 @@
 "use client";
-import { Box } from "@chakra-ui/react";
-import Link from "next/link";
+import { Link, Box, Tooltip } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 export interface Route {
   name: string;
   link: string;
   icon?: React.ReactNode;
   displayIconInDesktop?: boolean;
+  implemented?: boolean;
 }
 
 interface NavigationProps {
@@ -18,7 +19,7 @@ export default function Navigation({ routes }: NavigationProps) {
     <header>
       <nav>
         <Box
-          bg="white"
+          bg="purple.50"
           w="100%"
           h="60px"
           position="fixed"
@@ -30,9 +31,16 @@ export default function Navigation({ routes }: NavigationProps) {
           zIndex="1"
         >
           {routes.map((route) => (
-            <Link href={route.link} key={route.link}>
-              {route.displayIconInDesktop ? route.icon : route.name}
-            </Link>
+            <Tooltip isDisabled={route.implemented} label="Coming Soon!">
+              <Link
+                _hover={{ textDecoration: "none", transform: "scale(1.1)" }}
+                as={NextLink}
+                href={route.implemented ? route.link : "/"}
+                key={route.link}
+              >
+                {route.displayIconInDesktop ? route.icon : route.name}
+              </Link>
+            </Tooltip>
           ))}
         </Box>
         <Box h="60px" />
