@@ -24,6 +24,7 @@ export default function Page() {
     >
       {index != null ? (
         <UserCard
+          // biome-ignore lint/style/noNonNullAssertion: <explanation>
           user={users[index!]}
           onSmash={handleAction}
           onPass={handleAction}
