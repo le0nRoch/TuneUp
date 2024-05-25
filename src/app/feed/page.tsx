@@ -1,9 +1,8 @@
 "use client";
-import { Card } from "@/components/feed/Card";
-import { CardWrapper } from "@/components/feed/CardWrapper";
+import { UserCard } from "@/components/feed/UserCard";
 import { users } from "@/data/users";
-import { Center } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { EmptyCard } from "@/components/feed/EmptyCard";
 
 export default function Page() {
   const [index, setIndex] = useState<number | null>(0);
@@ -24,17 +23,13 @@ export default function Page() {
       }}
     >
       {index != null ? (
-        <Card
+        <UserCard
           user={users[index!]}
           onSmash={handleAction}
           onPass={handleAction}
         />
       ) : (
-        <CardWrapper>
-          <Center>
-            <h1>There are no more users to show</h1>
-          </Center>
-        </CardWrapper>
+        <EmptyCard />
       )}
     </main>
   );

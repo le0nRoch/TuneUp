@@ -1,12 +1,12 @@
-"use client";
 import type { User } from "@/types/user";
 import {
   Avatar,
   Button,
   type ButtonProps,
-  chakra,
+  Text,
   Flex,
   VStack,
+  Heading,
 } from "@chakra-ui/react";
 import { Track } from "./Track";
 import { CardWrapper } from "./CardWrapper";
@@ -17,7 +17,7 @@ interface CardProps {
   onPass?: () => void;
 }
 
-export function Card({
+export function UserCard({
   user: { avatar, firstName, lastName, description, tracks },
   onSmash = () => {},
   onPass = () => {},
@@ -33,10 +33,10 @@ export function Card({
           width={"100%"}
           overflowWrap={"normal"}
         >
-          <chakra.h2>{firstName}</chakra.h2>
-          <chakra.h2>{lastName}</chakra.h2>
+          <Heading>{firstName}</Heading>
+          <Heading>{lastName}</Heading>
         </Flex>
-        <chakra.p textAlign={"center"}>{description.repeat(5)}</chakra.p>
+        <Text textAlign={"center"}>{description}</Text>
       </VStack>
       <VStack
         overflowY={"hidden"}

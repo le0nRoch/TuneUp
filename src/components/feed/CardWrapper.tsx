@@ -11,7 +11,7 @@ export function CardWrapper({ children }: PropsWithChildren<object>) {
       paddingY={5}
       paddingX={3}
       gap={10}
-      height={"100%"}
+      minH={"calc(100vh - 70px)"}
     >
       {children}
     </Flex>

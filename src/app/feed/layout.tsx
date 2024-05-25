@@ -6,8 +6,8 @@ export default function FeedLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Box height={"calc(100vh - 60px)"} background={"purple.100"}>
-      <Container height={"100%"} background={"purple.50"}>
+    <Box minHeight={"calc(100vh - 60px)"} background={"purple.100"}>
+      <Container minHeight={"calc(100vh - 60px)"} background={"purple.50"}>
         {children}
       </Container>
     </Box>
